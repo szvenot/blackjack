@@ -37,10 +37,12 @@ def hit(j,deck):
         for i in range(1):
             j.append(deck[i])
             print(j)
+            return hit(j,deck)
     elif if_fold == "n":
         return j
     else:
         print("Quiet joking")
+        return hit(j,deck)
 
 for pairs in dealt:
     hit(pairs,deck_creation(card_symbols, card_values))
