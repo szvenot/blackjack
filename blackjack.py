@@ -25,10 +25,24 @@ def deal_two(deck):
         usedhere.append(deck[i+1])
     return dealt
 
- 
+#def if_used(j,deck):
+#    random.shuffle(deck)
+ #   for i in range(1):
+  #      if i in used:
+ #           return if_used(j,deck) 
+ #       else:    
+ #           j.append(deck[i])
+ #           deck.remove(i)
+ #           print(j)
+  #      return hit(j,deck)
+
+deck = deck_creation(card_symbols,card_values)
 num_of_plyrs = int(input("Give me the number of players"))
-deal = deal_two(deck_creation(card_symbols, card_values))
+deal = deal_two(deck)
 print(deal)
+
+
+
 
 def hit(j,deck):
     if_fold = input("Do you wanr a hit?")
@@ -37,14 +51,19 @@ def hit(j,deck):
         for i in range(1):
             j.append(deck[i])
             print(j)
+            deck.remove(deck[i])
             return hit(j,deck)
     elif if_fold == "n":
         return j
     else:
         print("Quiet joking")
-        return hit(j,deck)
+        return hit(j,deck1)
 
-for pairs in dealt:
-    hit(pairs,deck_creation(card_symbols, card_values))
+for i in used:
+    if i in deck:
+        deck.remove(i)
+
+for pairs in deal:
+    hit(pairs,deck)
 
 
